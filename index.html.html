@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dental Diagnosis Simulator</title>
+
+  <!-- Подключаем отдельный CSS-файл -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="menuScreen" class="menu-screen">
+    <div class="menu-screen__content">
+      <img class="menu-screen__logo" src="assets/DinoDentLogo.svg" alt="Логотип игры">
+      <button id="startShiftBtn" class="action-button action-button--green menu-screen__start-btn">Начать смену</button>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__title">День <span id="dayCounter">1</span></div>
+
+    <div class="topbar__stats">
+      <div class="progress-chip">
+        <div class="progress-bar">
+          <div id="ratingFill" class="progress-bar__fill"></div>
+        </div>
+        <span id="rating">50</span>%
+      </div>
+      <div><span id="patientNumber">1</span>/<span id="totalPatients">5</span></div>
+    </div>
+  </header>
+
+  <!-- Основная сетка: слева пациент и инструменты, справа чат и действия -->
+  <main class="layout">
+
+    <!-- Левая часть -->
+    <section class="left-panel">
+
+      <!-- Здесь отображается пациент -->
+      <div class="patient-card">
+
+        <!-- Сюда JS будет вставлять персонажа -->
+        <img id="patientImage" src="" alt="Пациент">
+      </div>
+
+      <!-- Инструменты под пациентом -->
+      <div class="tools-row">
+
+        <button class="tool-button" id="openCt" data-image="">
+          <span class="tool-button__preview" id="ctPreview"></span>
+          <span class="tool-button__text">Медицинская карта</span>
+        </button>
+
+        <button class="tool-button" id="openMouth" data-image="">
+          <span class="tool-button__preview" id="mouthPreview"></span>
+          <span class="tool-button__text">Осмотр</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Правая часть -->
+    <section class="right-panel">
+      <div class="chat-title">Чат с пациентом (сбор анамнеза)</div>
+
+      <!-- Чат -->
+      <div class="chat" id="chat"></div>
+
+      <div class="input-groups">
+        <div class="input-card">
+          <div class="input-card__title">Вопросы</div>
+          <div class="questions" id="questions"></div>
+        </div>
+        <div class="input-card">
+          <div class="input-card__title">Диагностика</div>
+          <div class="questions" id="interactions"></div>
+        </div>
+      </div>
+
+      <!-- Кнопки справа, как ты и просил -->
+      <div class="actions">
+        <button class="action-button action-button--green" id="diagnosisBtn">Поставить диагноз</button>
+        <button class="action-button action-button--red" id="consultBtn">Консультация (сдаться)</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Поп-ап постановки диагноза -->
+  <div class="popup hidden" id="diagnosisPopup">
+    <div class="popup__content">
+
+      <div class="popup__header">
+        <div class="popup__title">Постановка диагноза</div>
+        <button class="popup__close" id="closePopup">×</button>
+      </div>
+
+      <div class="popup__body">
+
+        <!-- Левая колонка: симптомы -->
+        <div class="popup__column">
+          <div class="popup__subtitle">Симптомы</div>
+          <div id="symptomsList"></div>
+        </div>
+
+        <!-- Правая колонка: дифференциальная диагностика -->
+        <div class="popup__column">
+          <div class="popup__subtitle">Дифференциальная диагностика</div>
+          <div id="diagnosisList"></div>
+
+          <div class="popup__actions">
+            <button id="confirmDiagnosisBtn">Подтвердить</button>
+            <button id="resetSymptomsBtn">Сбросить</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Отдельный поп-ап для картинок -->
+  <div class="popup hidden" id="imagePopup">
+    <div class="popup__content popup__content--image">
+      <div class="popup__header">
+        <div class="popup__title" id="imagePopupTitle">Изображение</div>
+        <button class="popup__close" id="closeImagePopup">×</button>
+      </div>
+
+      <div class="popup__body popup__body--image">
+        <div id="popupText" class="popup__text hidden"></div>
+        <img id="popupImage" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="popup hidden" id="resultPopup">
+    <div class="popup__content popup__content--small">
+      <div class="popup__header">
+        <div class="popup__title" id="resultTitle">Результат</div>
+      </div>
+      <div class="popup__body popup__body--result">
+        <div id="resultMessage" class="popup__text"></div>
+        <button id="continueBtn" class="action-button action-button--green">Продолжить</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup hidden" id="finalPopup">
+    <div class="popup__content popup__content--small">
+      <div class="popup__header">
+        <div class="popup__title" id="finalTitle">Игра завершена</div>
+      </div>
+      <div class="popup__body popup__body--result">
+        <div id="finalMessage" class="popup__text"></div>
+        <button id="restartBtn" class="action-button action-button--green">Начать заново</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Подключаем JS -->
+  <script src="script.js"></script>
+</body>
+</html>
