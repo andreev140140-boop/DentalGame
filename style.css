@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@500;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@500;600;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -233,7 +233,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   background: #f3f3f3;
-  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Mono", monospace;
   color: #333333;
 }
 
@@ -314,7 +314,7 @@ body {
   border-radius: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
 
 .action-button:last-child {
@@ -489,7 +489,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   padding: 10px 10px 0;
-  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-family: "Roboto Mono", monospace;
   color: #333333;
   flex-shrink: 0;
 }
