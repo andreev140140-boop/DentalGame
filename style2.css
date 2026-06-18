@@ -118,6 +118,7 @@ body {
   position: relative;
   background-color: transparent;
   background-image:
+    url("assets/Background.png"),
     url("assets/background.webp"),
     url("assets/background.png"),
     url("assets/background.jpg"),
@@ -125,7 +126,7 @@ body {
     url("assets/background.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center bottom;
+  background-position: center center;
   overflow: hidden;
   z-index: 0;
 }
@@ -298,11 +299,11 @@ body {
 }
 
 .action-button--green {
-  background: #44c81c;
+  background: #89E219;
 }
 
 .action-button--red {
-  background: #ff3a3a;
+  background: #FF4B4B;
 }
 
 .popup {
